@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Precios</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Formulario de Precios y Condiciones</h1>
+        <form>
+            <!-- Producto 1 -->
+            <div class="product">
+                <label for="producto1">Martillo</label>
+                <input type="number" id="producto1" placeholder="Precio">
+                <input type="number" id="compraMin1" placeholder="Compra Mínima">
+                <textarea id="observacion1" placeholder="Observación"></textarea>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="product">
+                <label for="producto2">Cinta Métrica</label>
+                <input type="number" id="producto2" placeholder="Precio">
+                <input type="number" id="compraMin2" placeholder="Compra Mínima">
+                <textarea id="observacion2" placeholder="Observación"></textarea>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="product">
+                <label for="producto3">Taladro Eléctrico</label>
+                <input type="number" id="producto3" placeholder="Precio">
+                <input type="number" id="compraMin3" placeholder="Compra Mínima">
+                <textarea id="observacion3" placeholder="Observación"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Enviar</button>
+        </form>
+    </div>
+
+    <script>
+        // Obtener los productos seleccionados y sus detalles
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const selectedProducts = [];
+
+            // Producto 1
+            if (document.getElementById('producto1').value) {
+                selectedProducts.push({
+                    product: "Martillo",
+                    price: document.getElementById('producto1').value,
+                    minPurchase: document.getElementById('compraMin1').value,
+                    observation: document.getElementById('observacion1').value,
+                });
+            }
+
+            // Producto 2
+            if (document.getElementById('producto2').value) {
+                selectedProducts.push({
+                    product: "Cinta Métrica",
+                    price: document.getElementById('producto2').value,
+                    minPurchase: document.getElementById('compraMin2').value,
+                    observation: document.getElementById('observacion2').value,
+                });
+            }
+
+            // Producto 3
+            if (document.getElementById('producto3').value) {
+                selectedProducts.push({
+                    product: "Taladro Eléctrico",
+                    price: document.getElementById('producto3').value,
+                    minPurchase: document.getElementById('compraMin3').value,
+                    observation: document.getElementById('observacion3').value,
+                });
+            }
+
+            console.log('Productos seleccionados:', selectedProducts);
+        });
+    </script>
+</body>
+</html>
